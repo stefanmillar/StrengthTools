@@ -32,11 +32,11 @@ export default class InputPanel extends React.Component {
 		return htmlArray;
 	};
 
-	submitData(e) {
+	async submitData(e) {
 		e.preventDefault();
 		let request = this.state;
-		axios.get('/calculate',
-			{params: request});
+		let response = await axios.post('/calculate', {data: request});
+		console.log(response);
 	};
 
 	render() {
