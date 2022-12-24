@@ -12,6 +12,8 @@ export default class InputPanel extends React.Component {
 			rpe: 6.5
 		}
 
+		this.handleSubmitData = props.handleSubmitData;
+
 		this.handleChange = this.handleChange.bind(this);
 		this.submitData = this.submitData.bind(this);
 	}
@@ -36,7 +38,7 @@ export default class InputPanel extends React.Component {
 		e.preventDefault();
 		let request = this.state;
 		let response = await axios.post('/calculate', {data: request});
-		console.log(response);
+		this.handleSubmitData(response.data);
 	};
 
 	render() {

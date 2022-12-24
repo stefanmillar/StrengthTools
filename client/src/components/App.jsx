@@ -1,51 +1,41 @@
 import React from 'react';
 import './App.css';
 import InputPanel from './InputPanel';
+import RpeTable from './RpeTable';
 
-/*function App() {
-	const [data, setData] = React.useState(null);
+export default class App extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			weightTable: null,
+			reps: 1
+		}
 
-	React.useEffect(() => {
-		fetch("/api")
-			.then((res) => res.json())
-			.then((data) => setData(data.message))
-			.catch((err) => console.log(err));
-	}, []);
+		this.handleSubmitData = this.handleSubmitData.bind(this);
+	}
 
-	return (
-		<div className="App">
-			<header className="App-header">
-        		<img src={logo} className="App-logo" alt="logo" />
-        			<p>
-          				{!data ? 'Loading...' : data}
-        			</p>
-        		<a
-          			className="App-link"
-          			href="https://reactjs.org"
-          			target="_blank"
-          			rel="noopener noreferrer"
-        		>
-          			Learn React
-        		</a>
-      		</header>
-    	</div>
-  	);
-}*/
+	handleSubmitData(weightTable) {
+		this.setState({weightTable});
 
-function App() {
-	return (
-		<div className='App container'>
-			<div className='row'>
-				<h1>RPE Calculator</h1>
-			</div>
-			<div className='row'>
-				<div className='links'>Link1 | Link2 | Link3 | Link4</div>
-			</div>
-			<div className='row'>
-				<InputPanel />
-			</div>
-    	</div>
-  	);
+		console.log(this.state);
+	}
+
+	render() {
+		return (
+			<div className="App container">
+				<div className="row">
+					<h1>RPE Calculator</h1>
+				</div>
+				<div className="row">
+					<div className="links">Link1 | Link2 | Link3 | Link4</div>
+				</div>
+				<div className="row">
+					<InputPanel handleSubmitData={this.handleSubmitData} />
+				</div>
+				<div className="row">
+					<RpeTable weightTable={this.state.weightTable} reps={this.state.reps}/>
+				</div>
+    		</div>
+  		);
+	}
 }
-
-export default App;
