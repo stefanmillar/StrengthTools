@@ -12,12 +12,17 @@ export default class App extends React.Component {
 		}
 
 		this.handleSubmitData = this.handleSubmitData.bind(this);
+		this.handleRepChange = this.handleRepChange.bind(this);
 	}
 
 	handleSubmitData(weightTable) {
 		this.setState({weightTable});
 
-		console.log(this.state);
+		console.log(weightTable);
+	}
+
+	handleRepChange(reps) {
+		this.setState({reps});
 	}
 
 	render() {
@@ -33,7 +38,7 @@ export default class App extends React.Component {
 					<InputPanel handleSubmitData={this.handleSubmitData} />
 				</div>
 				<div className="row">
-					<RpeTable weightTable={this.state.weightTable} reps={this.state.reps}/>
+					<RpeTable weightTable={this.state.weightTable} reps={this.state.reps} handleRepChange={this.handleRepChange}/>
 				</div>
     		</div>
   		);

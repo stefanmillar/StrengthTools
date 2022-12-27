@@ -6,8 +6,28 @@ export default class RpeTable extends React.Component {
 		super(props);
 
 		this.renderTableRows = this.renderTableRows.bind(this);
-
+        this.handleRepClick = this.handleRepClick.bind(this);
+        this.handleRepChange = props.handleRepChange;
 	}
+
+    handleRepClick(e) {
+        e.preventDefault();
+        this.handleRepChange(e.target.value);
+    }
+
+    renderRepButtons() {
+        let htmlArray = [];
+
+        for(let i = 1; i <= 12; i++) {
+            htmlArray.push(
+                <div className="col">
+                    <button value={i} onClick={this.handleRepClick}>{i}</button>
+                </div>
+            );
+        }
+
+        return htmlArray;
+    }
 
 	renderTableRows() {
 		let table = this.props.weightTable;
@@ -18,7 +38,7 @@ export default class RpeTable extends React.Component {
 				htmlArray.push(
 					<tr>
 						<th scope="col">{key}</th>
-						<th scope="col">{table[key][this.props.reps]}</th>
+						<th scope="col">{table[key][this.props.reps - 1]}</th>
 			  		</tr>
 				);
 			}
@@ -29,6 +49,16 @@ export default class RpeTable extends React.Component {
 
 	render() {
 		return (
+            <>
+            <div className="row">
+				<h2>One Rep Max: {this.props.weightTable ? this.props.weightTable['10'][0] : ''}</h2>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <h4>REPS</h4>
+                </div>
+                {this.renderRepButtons()}
+            </div>
 			<table className="table">
   				<thead>
     				<tr>
@@ -40,6 +70,7 @@ export default class RpeTable extends React.Component {
 					{this.renderTableRows()}
   				</tbody>
 			</table>
+            </>
 		);
 	}
 }

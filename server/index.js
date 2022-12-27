@@ -13,6 +13,13 @@ app.post("/calculate", (req, res) => {
 	let reps = req.body.data.reps;
 	let rpe = req.body.data.rpe;
 
+	if(weight < 0) {
+		res.json({
+			error: 1,
+			msg: 'Weight must be greater then 0'
+		})
+	}
+
 	let weightTable = rpeCalculator.calculateWeights(weight, reps, rpe);
 
 	res.json(weightTable);

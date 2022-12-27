@@ -15,7 +15,7 @@ const rpeTable = {
 const MAX_REPS = 12;
 
 function calculateWeights(weight, reps, rpe) {
-    let repsParsed = parseInt(reps);
+    let repsParsed = parseInt(reps - 1);
     let oneRepMax = weight / rpeTable[rpe][repsParsed];
 
     let weightTable = {
