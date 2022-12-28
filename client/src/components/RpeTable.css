@@ -1,0 +1,11 @@
+.rpe-table {
+	color: white;
+}
+
+.rpe-column {
+	width: 50%;
+}
+
+td {
+	border: none !important;
+}

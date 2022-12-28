@@ -13,11 +13,22 @@ app.post("/calculate", (req, res) => {
 	let reps = req.body.data.reps;
 	let rpe = req.body.data.rpe;
 
+	if(parseFloat(weight) == NaN) {
+		res.json({
+			error: 1,
+			msg: 'Please enter a valid weight.'
+		});
+
+		return;
+	}
+
 	if(weight < 0) {
 		res.json({
 			error: 1,
-			msg: 'Weight must be greater then 0'
-		})
+			msg: 'Weight must be greater then 0.'
+		});
+
+		return;
 	}
 
 	let weightTable = rpeCalculator.calculateWeights(weight, reps, rpe);

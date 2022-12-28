@@ -1,6 +1,7 @@
 import React from 'react';
 import './InputPanel.css';
 import axios from 'axios';
+import $ from 'jquery';
 
 export default class InputPanel extends React.Component {
 	constructor(props) {
@@ -38,43 +39,52 @@ export default class InputPanel extends React.Component {
 		e.preventDefault();
 		let request = this.state;
 		let response = await axios.post('/calculate', {data: request});
-		this.handleSubmitData(response.data);
+
+		if(response.data.error) {
+			$('#weight-error').removeClass('d-none').html(response.data.msg);
+		} else {
+			$('#weight-error').addClass('d-none').html('');
+			this.handleSubmitData(response.data);
+		}
 	};
 
 	render() {
 		return (
 			<div className="d-flex justify-content-center">
-				<div className="card col-5">
+				<div className="card col-lg-6 col-sm-12 col-12 input-panel">
 					<div className="card-body">
 						<h5 className="card-title">Set Details</h5>
 						<form id="rpeForm" onSubmit={this.submitData}>
 							<label htmlFor="weight" className="d-flex justify-content-start mb-2">Weight</label>
 							<div className="input-group mb-3">
-								<div className="input-group-prepend col-1">
-									<span className="input-group-text">lbs</span>
+								<div className="input-group-prepend col-sm-1 col-2">
+									<span className="input-group-text form-prepend">lbs</span>
 								</div>
-								<input type="number" className="form-control col-11" id="weight" onChange={this.handleChange}/>
+								<input type="number" className="form-control col-sm-11 col-10" id="weight" onChange={this.handleChange}/>
+								<div className="alert alert-danger d-none col-12 form-prepend" id="weight-error" role="alert">
+								</div>
 							</div>
 							<label htmlFor="reps" className="d-flex justify-content-start mb-2">Reps</label>
 							<div className="input-group mb-3">
-								<div className="input-group-prepend col-1">
-									<span className="input-group-text">X</span>
+								<div className="input-group-prepend col-sm-1 col-2">
+									<span className="input-group-text form-prepend">X</span>
 								</div>
-								<select className="custom-select col-11" id="reps" defaultValue={1} onChange={this.handleChange}>
+								<select className="custom-select col-sm-11 col-10" id="reps" defaultValue={1} onChange={this.handleChange}>
 									{this.createSelectValues(1, 12, 1)}
 								</select>
 							</div>
 							<label htmlFor="rpe" className="d-flex justify-content-start mb-2">RPE</label>
 							<div className="input-group mb-3">
-								<div className="input-group-prepend col-1">
-									<span className="input-group-text">@</span>
+								<div className="input-group-prepend col-sm-1 col-2">
+									<span className="input-group-text form-prepend">@</span>
 								</div>
-								<select className="custom-select col-11" id="rpe" defaultValue={6.5} onChange={this.handleChange}>
+								<select className="custom-select col-sm-11 col-10" id="rpe" defaultValue={6.5} onChange={this.handleChange}>
 									{this.createSelectValues(6.5, 10, 0.5)}
 								</select>
 							</div>
-							<button type="submit" className="btn btn-primary">Calculate</button>
+							<button type="submit" className="btn rpe-button">Calculate</button>
 						</form>
+						<h2 className={this.props.weightTable ? 'mt-2' : 'd-none'}>One Rep Max: {this.props.weightTable ? this.props.weightTable['10'][0] : ''}</h2>
 					</div>
 				</div>
 			</div>
