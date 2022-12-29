@@ -40,7 +40,7 @@ export default class InputPanel extends React.Component {
 	async submitData(e) {
 		e.preventDefault();
 		let request = this.state;
-		let response = await API.get(apiName, '/strength-tools', {queryStringParameters: request});
+		let response = await API.get(apiName, '/calculate', {queryStringParameters: request});
 
 		if(response.data.error) {
 			$('#weight-error').removeClass('d-none').html(response.data.msg);
