@@ -37,19 +37,17 @@ export default class InputPanel extends React.Component {
 		return htmlArray;
 	};
 
-	async submitData(e) {
+	submitData(e) {
 		e.preventDefault();
 		let request = this.state;
-		let response = await API.get(apiName, '/calculate', {queryStringParameters: request});
-
-		if(response.data) {
+		let response = API.get(apiName, '/calculate', {queryStringParameters: request}).then(response => {
 			if(response.data.error) {
 				$('#weight-error').removeClass('d-none').html(response.data.msg);
 			} else {
 				$('#weight-error').addClass('d-none').html('');
 				this.handleSubmitData(response.data);
 			}
-		}
+		});
 	};
 
 	render() {
