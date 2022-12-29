@@ -9,9 +9,9 @@ const app = express();
 app.use(express.json());
 
 app.post("/calculate", (req, res) => {
-	let weight = req.body.data.weight;
-	let reps = req.body.data.reps;
-	let rpe = req.body.data.rpe;
+	let weight = req.query.weight;
+	let reps = req.query.reps;
+	let rpe = req.query.rpe;
 
 	if(parseFloat(weight) == NaN) {
 		res.json({

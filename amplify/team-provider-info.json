@@ -15,7 +15,11 @@
       "function": {
         "strengthtoolsclient722cdde2": {
           "deploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
-          "s3Key": "amplify-builds/strengthtoolsclient722cdde2-78376a4156476c72306d-build.zip"
+          "s3Key": "amplify-builds/strengthtoolsclient722cdde2-2f5954484e5277556a53-build.zip"
+        },
+        "calculate": {
+          "deploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
+          "s3Key": "amplify-builds/calculate-425949466f6774362b4b-build.zip"
         }
       },
       "api": {
