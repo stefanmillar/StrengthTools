@@ -53,7 +53,7 @@ app.get("/calculate", (req, res) => {
 	res.json(weightTable);
 });
 
-app.listen(3000, function() {
+app.listen(3001, function() {
     console.log("App started")
 });
 
