@@ -1,0 +1,26 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify480ddb2983d04-staging-170806-authRole",
+      "UnauthRoleArn": "arn:aws:iam::208712725278:role/amplify-amplify480ddb2983d04-staging-170806-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::208712725278:role/amplify-amplify480ddb2983d04-staging-170806-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
+      "UnauthRoleName": "amplify-amplify480ddb2983d04-staging-170806-unauthRole",
+      "StackName": "amplify-amplify480ddb2983d04-staging-170806",
+      "StackId": "arn:aws:cloudformation:ca-central-1:208712725278:stack/amplify-amplify480ddb2983d04-staging-170806/5cb74a30-879b-11ed-987e-02b5c8900b46",
+      "AmplifyAppId": "d5p4gnfujzpzk"
+    },
+    "categories": {
+      "function": {
+        "strengthtoolsclient722cdde2": {
+          "deploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
+          "s3Key": "amplify-builds/strengthtoolsclient722cdde2-78376a4156476c72306d-build.zip"
+        }
+      },
+      "api": {
+        "apie244579f": {}
+      }
+    }
+  }
+}

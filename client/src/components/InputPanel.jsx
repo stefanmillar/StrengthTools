@@ -1,6 +1,6 @@
 import React from 'react';
 import './InputPanel.css';
-import axios from 'axios';
+import { Amplify, API } from 'aws-amplify';
 import $ from 'jquery';
 
 export default class InputPanel extends React.Component {
@@ -38,7 +38,7 @@ export default class InputPanel extends React.Component {
 	async submitData(e) {
 		e.preventDefault();
 		let request = this.state;
-		let response = await axios.post('/calculate', {data: request});
+		let response = await API.get('strengthtoolsclient722cdde2', '/calculate', {queryStringParameters: request});
 
 		if(response.data.error) {
 			$('#weight-error').removeClass('d-none').html(response.data.msg);
