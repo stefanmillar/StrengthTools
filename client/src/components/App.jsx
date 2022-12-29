@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Amplify, { API } from 'aws-amplify';
+import { Amplify, API } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import InputPanel from './InputPanel';
 import RpeTable from './RpeTable';
