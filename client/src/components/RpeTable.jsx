@@ -58,7 +58,7 @@ export default class RpeTable extends React.Component {
 	render() {
 		return (
             <div className={this.props.weightTable ? 'd-flex justify-content-center mb-5' : 'd-none'}>
-				<div className="card col col-sm-12 col-12 input-panel">
+				<div className="card col col-sm-12 col-12 strength-card">
 					<div className="card-body">
             			<div className="row mb-2">
                 			<div className="col-lg-1 col-sm-12 col-12 p-0">

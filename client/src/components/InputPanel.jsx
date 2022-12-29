@@ -51,7 +51,7 @@ export default class InputPanel extends React.Component {
 	render() {
 		return (
 			<div className="d-flex justify-content-center">
-				<div className="card col-lg-6 col-sm-12 col-12 input-panel">
+				<div className="card col-lg-6 col-sm-12 col-12 strength-card">
 					<div className="card-body">
 						<h5 className="card-title">Set Details</h5>
 						<form id="rpeForm" onSubmit={this.submitData}>
