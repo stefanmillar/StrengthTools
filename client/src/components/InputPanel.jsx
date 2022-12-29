@@ -1,7 +1,9 @@
 import React from 'react';
 import './InputPanel.css';
-import { Amplify, API } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import $ from 'jquery';
+
+const apiName = 'apie244579f';
 
 export default class InputPanel extends React.Component {
 	constructor(props) {
@@ -38,7 +40,7 @@ export default class InputPanel extends React.Component {
 	async submitData(e) {
 		e.preventDefault();
 		let request = this.state;
-		let response = await API.get('strengthtoolsclient722cdde2', '/calculate', {queryStringParameters: request});
+		let response = await API.get(apiName, '/calculate', {queryStringParameters: request});
 
 		if(response.data.error) {
 			$('#weight-error').removeClass('d-none').html(response.data.msg);
