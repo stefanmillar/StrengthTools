@@ -60,7 +60,7 @@ export default class InputPanel extends React.Component {
 							<label htmlFor="weight" className="d-flex justify-content-start mb-2">Weight</label>
 							<div className="input-group mb-3">
 								<div className="input-group-prepend col-sm-1 col-2">
-									<span className="input-group-text form-prepend">lbs</span>
+									<span className="input-group-text form-prepend">KG</span>
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="weight" onChange={this.handleChange}/>
 								<div className="alert alert-danger d-none col-12 form-prepend" id="weight-error" role="alert">
