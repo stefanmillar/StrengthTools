@@ -152,54 +152,54 @@
         }
       }
     },
-    "functionstrengthtoolsclient722cdde2": {
+    "functionrpecalculate": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify480ddb2983d04-staging-170806-deployment/amplify-cfn-templates/function/strengthtoolsclient722cdde2-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/rpecalculate-cloudformation-template.json",
         "Parameters": {
-          "deploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
-          "s3Key": "amplify-builds/strengthtoolsclient722cdde2-2f5954484e5277556a53-build.zip",
+          "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
+          "s3Key": "amplify-builds/rpecalculate-69446952454e33387151-build.zip",
           "env": "staging"
         }
       }
     },
-    "functioncalculate": {
+    "functionliftcompare": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify480ddb2983d04-staging-170806-deployment/amplify-cfn-templates/function/calculate-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
         "Parameters": {
-          "deploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
-          "s3Key": "amplify-builds/calculate-425949466f6774362b4b-build.zip",
+          "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
+          "s3Key": "amplify-builds/liftcompare-7a6a367668437a347479-build.zip",
           "env": "staging"
         }
       }
     },
-    "apiapie244579f": {
+    "apiapi58122196": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify480ddb2983d04-staging-170806-deployment/amplify-cfn-templates/api/apie244579f-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/api/api58122196-cloudformation-template.json",
         "Parameters": {
-          "functionstrengthtoolsclient722cdde2Name": {
+          "functionrpecalculateName": {
             "Fn::GetAtt": [
-              "functionstrengthtoolsclient722cdde2",
+              "functionrpecalculate",
               "Outputs.Name"
             ]
           },
-          "functionstrengthtoolsclient722cdde2Arn": {
+          "functionrpecalculateArn": {
             "Fn::GetAtt": [
-              "functionstrengthtoolsclient722cdde2",
+              "functionrpecalculate",
               "Outputs.Arn"
             ]
           },
-          "functioncalculateName": {
+          "functionliftcompareName": {
             "Fn::GetAtt": [
-              "functioncalculate",
+              "functionliftcompare",
               "Outputs.Name"
             ]
           },
-          "functioncalculateArn": {
+          "functionliftcompareArn": {
             "Fn::GetAtt": [
-              "functioncalculate",
+              "functionliftcompare",
               "Outputs.Arn"
             ]
           },

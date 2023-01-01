@@ -5,8 +5,8 @@ const awsmobile = {
     "aws_project_region": "ca-central-1",
     "aws_cloud_logic_custom": [
         {
-            "name": "apie244579f",
-            "endpoint": "https://ep7cms09yi.execute-api.ca-central-1.amazonaws.com/staging",
+            "name": "api58122196",
+            "endpoint": "https://wlqkpz9lxc.execute-api.ca-central-1.amazonaws.com/staging",
             "region": "ca-central-1"
         }
     ]

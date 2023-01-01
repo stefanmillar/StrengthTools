@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/rpecalculate": {
+      "name": "/rpecalculate",
+      "lambdaFunction": "rpecalculate",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/liftcompare": {
+      "name": "/liftcompare",
+      "lambdaFunction": "liftcompare",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

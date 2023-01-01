@@ -1,12 +1,12 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "strengthtoolsclient722cdde2": {
+        "rpecalculate": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
             "LambdaExecutionRole": "string"
         },
-        "calculate": {
+        "liftcompare": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
@@ -14,7 +14,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "api": {
-        "apie244579f": {
+        "api58122196": {
             "RootUrl": "string",
             "ApiName": "string",
             "ApiId": "string"

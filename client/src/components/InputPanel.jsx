@@ -3,7 +3,7 @@ import './InputPanel.css';
 import { API } from 'aws-amplify';
 import $ from 'jquery';
 
-const apiName = 'apie244579f';
+const apiName = 'api58122196';
 
 export default class InputPanel extends React.Component {
 	constructor(props) {
@@ -40,7 +40,7 @@ export default class InputPanel extends React.Component {
 	async submitData(e) {
 		e.preventDefault();
 		let request = this.state;
-		let response = await API.get(apiName, '/calculate', {queryStringParameters: request});
+		let response = await API.get(apiName, '/rpecalculate', {queryStringParameters: request});
 
 		if(response.error) {
 			$('#weight-error').removeClass('d-none').html(response.msg);

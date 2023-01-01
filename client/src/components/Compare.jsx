@@ -1,11 +1,27 @@
 import React from 'react';
 import './About.css';
+import { API } from 'aws-amplify';
+
+const apiName = 'api58122196';
 
 export default class About extends React.Component {
 
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			sex: 'm',
+			age: '14-18',
+			equipment: 'Raw',
+			squat: null,
+			bench: null,
+			deadlift: null
+		}
+
+		this.handleSubmitData = props.handleSubmitData;
+
+		this.handleChange = this.handleChange.bind(this);
+		this.submitData = this.submitData.bind(this);
 		this.handleEmailClick = this.handleEmailClick.bind(this);
 	}
 
@@ -23,6 +39,20 @@ export default class About extends React.Component {
 		});
 	}
 
+	async submitData(e) {
+		e.preventDefault();
+		let request = this.state;
+		let response = await API.get(apiName, '/liftcompare', {queryStringParameters: request});
+
+		//if(response.error) {
+		//	$('#weight-error').removeClass('d-none').html(response.msg);
+		//} else {
+		//	$('#weight-error').addClass('d-none').html('');
+		//	this.handleSubmitData(response);
+		//}
+		console.log(response);
+	};
+
 	render() {
 		return (
 			<div className="justify-content-center">
@@ -33,13 +63,14 @@ export default class About extends React.Component {
 					<div className="card col-lg-6 col-sm-12 col-12 strength-card">
 						<div className="card-body">
 							<h5 className="card-title">Compare</h5>
+							<form id="rpeForm" onSubmit={this.submitData}>
 							<div className="row">
 								<div className="col-4">
 									<label htmlFor="sex" className="d-flex justify-content-start mb-2">Sex</label>
 									<div className="input-group mb-3">
 										<select className="custom-select col-sm-11 col-10 p-2" id="sex" defaultValue={1} onChange={this.handleChange}>
-											<option key="m" value="m">Male</option>
-											<option key="f" value="f">Female</option>
+											<option key="M" value="M">Male</option>
+											<option key="F" value="F">Female</option>
 										</select>
 									</div>
 								</div>
@@ -67,23 +98,19 @@ export default class About extends React.Component {
 									</div>
 								</div>
 							</div>
-							<label htmlFor="bench" className="d-flex justify-content-start mb-2">Bench</label>
-							<div className="input-group mb-3">
-								<div className="input-group-prepend col-sm-1 col-2">
-									<span className="input-group-text form-prepend">KG</span>
-								</div>
-								<input type="number" className="form-control col-sm-11 col-10" id="bench" onChange={this.handleChange}/>
-								<div className="alert alert-danger d-none col-12 form-prepend input-error" role="alert">
-								</div>
-							</div>
 							<label htmlFor="squat" className="d-flex justify-content-start mb-2">Squat</label>
 							<div className="input-group mb-3">
 								<div className="input-group-prepend col-sm-1 col-2">
 									<span className="input-group-text form-prepend">KG</span>
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="squat" onChange={this.handleChange}/>
-								<div className="alert alert-danger d-none col-12 form-prepend input-error" role="alert">
+							</div>
+							<label htmlFor="bench" className="d-flex justify-content-start mb-2">Bench</label>
+							<div className="input-group mb-3">
+								<div className="input-group-prepend col-sm-1 col-2">
+									<span className="input-group-text form-prepend">KG</span>
 								</div>
+								<input type="number" className="form-control col-sm-11 col-10" id="bench" onChange={this.handleChange}/>
 							</div>
 							<label htmlFor="deadlift" className="d-flex justify-content-start mb-2">Deadlift</label>
 							<div className="input-group mb-3">
@@ -91,11 +118,12 @@ export default class About extends React.Component {
 									<span className="input-group-text form-prepend">KG</span>
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="deadlift" onChange={this.handleChange}/>
-								<div className="alert alert-danger d-none col-12 form-prepend input-error" role="alert">
-								</div>
 							</div>
 							<p>Note: Lifts are only compared to the International Powerlifting Association. Different federations will be available in the future.</p>
 							<button type="submit" className="btn rpe-button">Compare</button>
+							<div className="alert alert-danger d-none col-12 form-prepend input-error" role="alert">
+							</div>
+							</form>
 						</div>
 					</div>
 				</div>

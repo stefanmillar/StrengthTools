@@ -1,77 +1,77 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplify480ddb2983d04-staging-170806-authRole",
-      "UnauthRoleArn": "arn:aws:iam::208712725278:role/amplify-amplify480ddb2983d04-staging-170806-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::208712725278:role/amplify-amplify480ddb2983d04-staging-170806-authRole",
+      "AuthRoleName": "amplify-amplify2011b3fc04af4-staging-205053-authRole",
+      "UnauthRoleArn": "arn:aws:iam::208712725278:role/amplify-amplify2011b3fc04af4-staging-205053-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::208712725278:role/amplify-amplify2011b3fc04af4-staging-205053-authRole",
       "Region": "ca-central-1",
-      "DeploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
-      "UnauthRoleName": "amplify-amplify480ddb2983d04-staging-170806-unauthRole",
-      "StackName": "amplify-amplify480ddb2983d04-staging-170806",
-      "StackId": "arn:aws:cloudformation:ca-central-1:208712725278:stack/amplify-amplify480ddb2983d04-staging-170806/5cb74a30-879b-11ed-987e-02b5c8900b46",
+      "DeploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
+      "UnauthRoleName": "amplify-amplify2011b3fc04af4-staging-205053-unauthRole",
+      "StackName": "amplify-amplify2011b3fc04af4-staging-205053",
+      "StackId": "arn:aws:cloudformation:ca-central-1:208712725278:stack/amplify-amplify2011b3fc04af4-staging-205053/d12a17f0-894c-11ed-a82a-0632d826539e",
       "AmplifyAppId": "d5p4gnfujzpzk"
     }
   },
   "function": {
-    "strengthtoolsclient722cdde2": {
+    "rpecalculate": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2022-12-29T19:44:00.520Z",
+      "lastBuildTimeStamp": "2023-01-01T21:39:12.227Z",
       "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2022-12-29T19:44:01.307Z",
-      "distZipFilename": "strengthtoolsclient722cdde2-2f5954484e5277556a53-build.zip",
+      "lastPackageTimeStamp": "2023-01-01T21:39:12.850Z",
+      "distZipFilename": "rpecalculate-69446952454e33387151-build.zip",
       "s3Bucket": {
-        "deploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
-        "s3Key": "amplify-builds/strengthtoolsclient722cdde2-2f5954484e5277556a53-build.zip"
+        "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
+        "s3Key": "amplify-builds/rpecalculate-69446952454e33387151-build.zip"
       },
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify480ddb2983d04-staging-170806-deployment/amplify-cfn-templates/function/strengthtoolsclient722cdde2-cloudformation-template.json",
-        "logicalId": "functionstrengthtoolsclient722cdde2"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/rpecalculate-cloudformation-template.json",
+        "logicalId": "functionrpecalculate"
       },
-      "lastPushTimeStamp": "2022-12-29T20:45:33.410Z",
+      "lastPushTimeStamp": "2023-01-01T23:14:08.900Z",
       "output": {
         "Region": "ca-central-1",
-        "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:strengthtoolsclient722cdde2-staging",
-        "Name": "strengthtoolsclient722cdde2-staging",
-        "LambdaExecutionRole": "strengthtoolsclientLambdaRole3f9207c8-staging"
+        "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:rpecalculate-staging",
+        "Name": "rpecalculate-staging",
+        "LambdaExecutionRole": "strengthtoolsclientLambdaRoleb34244c1-staging"
       },
-      "lastPushDirHash": "RlkQZLdlzIg5YhhaVXpyJjk/90Q="
+      "lastPushDirHash": "XT3fkmypsjFIhBYQ7vdjGmDBu0o="
     },
-    "calculate": {
+    "liftcompare": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2022-12-29T20:44:28.267Z",
+      "lastBuildTimeStamp": "2023-01-01T23:13:02.040Z",
       "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2022-12-29T20:44:28.959Z",
-      "distZipFilename": "calculate-425949466f6774362b4b-build.zip",
+      "lastPackageTimeStamp": "2023-01-01T23:13:02.622Z",
+      "distZipFilename": "liftcompare-7a6a367668437a347479-build.zip",
       "s3Bucket": {
-        "deploymentBucketName": "amplify-amplify480ddb2983d04-staging-170806-deployment",
-        "s3Key": "amplify-builds/calculate-425949466f6774362b4b-build.zip"
+        "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
+        "s3Key": "amplify-builds/liftcompare-7a6a367668437a347479-build.zip"
       },
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify480ddb2983d04-staging-170806-deployment/amplify-cfn-templates/function/calculate-cloudformation-template.json",
-        "logicalId": "functioncalculate"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
+        "logicalId": "functionliftcompare"
       },
-      "lastPushTimeStamp": "2022-12-29T20:45:33.590Z",
+      "lastPushTimeStamp": "2023-01-01T23:14:09.208Z",
       "output": {
         "Region": "ca-central-1",
-        "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:calculate-staging",
-        "Name": "calculate-staging",
-        "LambdaExecutionRole": "strengthtoolsclientLambdaRole92b30270-staging"
+        "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:liftcompare-staging",
+        "Name": "liftcompare-staging",
+        "LambdaExecutionRole": "strengthtoolsclientLambdaRolef78a8730-staging"
       },
-      "lastPushDirHash": "gClipElK3FPMUYLbLFKuoJYhlEo="
+      "lastPushDirHash": "Shaf39GT7i7Sry9HYy169PO6yHA="
     }
   },
   "api": {
-    "apie244579f": {
+    "api58122196": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "strengthtoolsclient722cdde2",
+          "resourceName": "rpecalculate",
           "attributes": [
             "Name",
             "Arn"
@@ -79,7 +79,7 @@
         },
         {
           "category": "function",
-          "resourceName": "calculate",
+          "resourceName": "liftcompare",
           "attributes": [
             "Name",
             "Arn"
@@ -87,16 +87,16 @@
         }
       ],
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify480ddb2983d04-staging-170806-deployment/amplify-cfn-templates/api/apie244579f-cloudformation-template.json",
-        "logicalId": "apiapie244579f"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/api/api58122196-cloudformation-template.json",
+        "logicalId": "apiapi58122196"
       },
-      "lastPushTimeStamp": "2022-12-29T20:45:33.417Z",
+      "lastPushTimeStamp": "2023-01-01T23:14:08.911Z",
       "output": {
-        "ApiName": "apie244579f",
-        "RootUrl": "https://ep7cms09yi.execute-api.ca-central-1.amazonaws.com/staging",
-        "ApiId": "ep7cms09yi"
+        "ApiName": "api58122196",
+        "RootUrl": "https://wlqkpz9lxc.execute-api.ca-central-1.amazonaws.com/staging",
+        "ApiId": "wlqkpz9lxc"
       },
-      "lastPushDirHash": "Q4K5zwt/bi8aKP3edaQBRt0h2Wc="
+      "lastPushDirHash": "AdBbVvIglJx7emYSxT0sUhVgq3Q="
     }
   }
 }

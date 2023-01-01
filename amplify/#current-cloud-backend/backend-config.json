@@ -1,24 +1,24 @@
 {
   "function": {
-    "strengthtoolsclient722cdde2": {
+    "rpecalculate": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "calculate": {
+    "liftcompare": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "api": {
-    "apie244579f": {
+    "api58122196": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "strengthtoolsclient722cdde2",
+          "resourceName": "rpecalculate",
           "attributes": [
             "Name",
             "Arn"
@@ -26,7 +26,7 @@
         },
         {
           "category": "function",
-          "resourceName": "calculate",
+          "resourceName": "liftcompare",
           "attributes": [
             "Name",
             "Arn"
