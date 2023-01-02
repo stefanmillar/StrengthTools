@@ -14,12 +14,20 @@ app.use(function(req, res, next) {
   next()
 });
 
-var mysql = require('mysql');
+const connection = require('serverless-mysql')({
+  config: {
+    host     : 'strength-tools-data.clhsj3dpvgnv.ca-central-1.rds.amazonaws.com',
+    user     : 'admin',
+    password : 'Keek159753',
+    port     : 3306
+  }
+});
 
-app.get('/liftcompare', function(req, res) {
+app.get('/liftcompare', async (req, res) => {
   let sex = req.query.sex;
 	let age = req.query.age;
 	let equipment = req.query.equipment;
+  let weight = req.query.weight;
   let squat = req.query.squat ? parseFloat(req.query.squat) : null;
   let bench = req.query.bench ? parseFloat(req.query.bench) : null;
   let deadlift = req.query.deadlift ? parseFloat(req.query.deadlift) : null;
@@ -47,38 +55,20 @@ app.get('/liftcompare', function(req, res) {
     Sex: sex,
     BirthYearClass: age,
     Equipment: equipment,
+    WeightClassKg: weight,
     Best3SquatKg: squat,
     Best3BenchKg: bench,
     Best3DeadliftKg: deadlift,
     TotalKg: total
   }
   
-  var connection = mysql.createConnection({
-    host     : 'strength-tools-data.clhsj3dpvgnv.ca-central-1.rds.amazonaws.com',
-    user     : 'admin',
-    password : 'Keek159753',
-    port     : 3306
-  });
-  
-  connection.connect((err) => {
-    if (err) {
-      res.json({
-        error: 1,
-        msg: 'Unexpected error. Please try again later.'
-      });
-      
-      return;
-    }
-    console.log('Connected!');
-  });
-  
-  connection.query('INSERT INTO `open-powerlifting-data`.`open-powerlifting-data` SET ?', table_data , function(err, result, fields) {
-    if (err) {
+  let result = connection.query('INSERT INTO `open-powerlifting-data`.`open-powerlifting-data` SET ?', table_data);
+    if (result.err) {
       res.json({
         error: 1,
         msg: 'An unexpected error occured.'
       });
-      connection.end();
+      await connection.end();
       return;
     } else{
       let query = `WITH t AS (SELECT
@@ -88,7 +78,7 @@ app.get('/liftcompare', function(req, res) {
         ${total ? 'RANK() over ( order by TotalKg ) total_rank,' : ''}
         id
         FROM \`open-powerlifting-data\`.\`open-powerlifting-data\`
-        WHERE Sex = '${sex}' AND BirthYearClass = '${age}' AND Equipment = '${equipment}')
+        WHERE Sex = '${sex}' AND BirthYearClass = '${age}' AND Equipment = '${equipment}' AND WeightClassKg = '${weight}')
         SELECT * FROM(
         SELECT ${('' + (squat ? 'squat_rank,' : '') + (bench ? 'bench_rank,' : '') + (deadlift ? 'deadlift_rank,' : '') + (total ? 'total_rank,' : '')).slice(0, -1)} FROM t
         WHERE
@@ -96,13 +86,13 @@ app.get('/liftcompare', function(req, res) {
         JOIN
         (SELECT COUNT(*) as count FROM t) as B`; 
     
-      connection.query(query, (err,rows) => {
-        if(err) {
+      rows = await connection.query(query);
+        if(rows.err) {
           res.json({
             error: 1,
             msg: 'An unexpected error occured.'
           });
-          connection.end();
+          await connection.end();
           return;
         }
 
@@ -113,12 +103,23 @@ app.get('/liftcompare', function(req, res) {
           squat: squat ? Math.floor((ranksObject.squat_rank / totalRows) * 100) : null,
           bench: bench ? Math.floor((ranksObject.bench_rank / totalRows) * 100) : null,
           deadlift: deadlift ? Math.floor((ranksObject.deadlift_rank / totalRows) * 100) : null,
-          total: total ? Math.floor((ranksObject.total_rank / totalRows) * 100) : null
+          total: total ? Math.floor((ranksObject.total_rank / totalRows) * 100) : null,
+          meets: totalRows
         });
-        connection.end();
-      });
+
+        query = `DELETE FROM \`open-powerlifting-data\`.\`open-powerlifting-data\` WHERE id = ${result.insertId})`;
+
+        let deleteResult = await connection.query(query);
+          if(deleteResult.err) {
+            res.json({
+              error: 1,
+              msg: 'An unexpected error occured.'
+            });
+            await connection.end();
+            return;
+          }
     }
-  });
+    await connection.end();
 });
 
 app.listen(3000, function() {

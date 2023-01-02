@@ -1,6 +1,8 @@
 import React from 'react';
 import './About.css';
 import { API } from 'aws-amplify';
+import $ from 'jquery';
+import { Dna } from  'react-loader-spinner';
 
 const apiName = 'api58122196';
 
@@ -10,12 +12,15 @@ export default class About extends React.Component {
 		super(props);
 
 		this.state = {
-			sex: 'm',
+			sex: 'M',
 			age: '14-18',
 			equipment: 'Raw',
+			weight: '53',
 			squat: null,
 			bench: null,
-			deadlift: null
+			deadlift: null,
+			responseData: null,
+			loading: false
 		}
 
 		this.handleSubmitData = props.handleSubmitData;
@@ -23,6 +28,7 @@ export default class About extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.submitData = this.submitData.bind(this);
 		this.handleEmailClick = this.handleEmailClick.bind(this);
+		this.renderData = this.renderData.bind(this);
 	}
 
 	handleEmailClick(e) {
@@ -39,45 +45,64 @@ export default class About extends React.Component {
 		});
 	}
 
+	renderData() {
+		let htmlArray = [];
+		if(this.state.responseData) {
+			let data = this.state.responseData;
+			htmlArray.push(<h5>Lifts were compared against {data['meets']} recorded meets in the IPF.</h5>)
+			for(let key in data) {
+				if(data[key] && key !== 'meets') {
+					if(data[key] > 80) {
+						htmlArray.push(<p>Your {key} ranks in the top {data[key]}% of lifters, Wow!</p>)
+					} else {
+						htmlArray.push(<p>Your {key} ranks in the top {data[key]}% of lifters.</p>)
+					}
+				}
+			}
+		}
+
+		return htmlArray;
+	}
+
 	async submitData(e) {
 		e.preventDefault();
 		let request = this.state;
-		let response = await API.get(apiName, '/liftcompare', {queryStringParameters: request});
+		$('.input-error').addClass('d-none').html('');
 
-		//if(response.error) {
-		//	$('#weight-error').removeClass('d-none').html(response.msg);
-		//} else {
-		//	$('#weight-error').addClass('d-none').html('');
-		//	this.handleSubmitData(response);
-		//}
-		console.log(response);
+		this.setState({loading: true, responseData: null});
+		let responseData = await API.get(apiName, '/liftcompare', {queryStringParameters: request});
+		this.setState({loading: false});
+
+		if(responseData.error) {
+			$('.input-error').removeClass('d-none').html(responseData.msg);
+		} else {
+			this.setState({responseData});
+		}
+
 	};
 
 	render() {
 		return (
 			<div className="justify-content-center">
-				<h5 className="row d-flex justify-content-center mb-3">
-					Compare your lifts to over 1,000,000 recorded powerlifting meets!
-				</h5>
 				<div className="row d-flex justify-content-center">
 					<div className="card col-lg-6 col-sm-12 col-12 strength-card">
 						<div className="card-body">
-							<h5 className="card-title">Compare</h5>
+							<h5 className="card-title">Compare Lifts</h5>
 							<form id="rpeForm" onSubmit={this.submitData}>
 							<div className="row">
-								<div className="col-4">
+								<div className="col-6">
 									<label htmlFor="sex" className="d-flex justify-content-start mb-2">Sex</label>
 									<div className="input-group mb-3">
-										<select className="custom-select col-sm-11 col-10 p-2" id="sex" defaultValue={1} onChange={this.handleChange}>
+										<select className="custom-select col-12 p-2" id="sex" defaultValue={1} onChange={this.handleChange}>
 											<option key="M" value="M">Male</option>
 											<option key="F" value="F">Female</option>
 										</select>
 									</div>
 								</div>
-								<div className="col-4">
+								<div className="col-6">
 									<label htmlFor="age" className="d-flex justify-content-start mb-2">Age Class</label>
 									<div className="input-group mb-3">
-										<select className="custom-select col-sm-11 col-10 p-2" id="age" defaultValue={1} onChange={this.handleChange}>
+										<select className="custom-select col-12 p-2" id="age" defaultValue={1} onChange={this.handleChange}>
 											<option key="14-18" value="14-18">14 - 18</option>
 											<option key="19-23" value="19-23">19 - 23</option>
 											<option key="24-39" value="24-39">24 - 39</option>
@@ -88,12 +113,44 @@ export default class About extends React.Component {
 										</select>
 									</div>
 								</div>
-								<div className="col-4">
+							</div>
+							<div className="row">
+								<div className="col-6">
 									<label htmlFor="equipment" className="d-flex justify-content-start mb-2">Equipment</label>
 									<div className="input-group mb-3">
-										<select className="custom-select col-sm-11 col-10 p-2" id="equipment" defaultValue={1} onChange={this.handleChange}>
+										<select className="custom-select col-12 p-2" id="equipment" defaultValue={1} onChange={this.handleChange}>
 											<option key="Raw" value="Raw">Raw</option>
 											<option key="Single-ply" value="Single-ply">Single Ply</option>
+										</select>
+									</div>
+								</div>
+								<div className="col-6">
+									<label htmlFor="weight" className="d-flex justify-content-start mb-2">Weight Class</label>
+									<div className="input-group mb-3">
+										<select className="custom-select col-12 p-2" id="weight" defaultValue={1} onChange={this.handleChange}>
+											{this.state.sex === 'M' ?
+											(<>
+												{this.state.age === '14-18' ? <option key="53" value="53">53 Kg</option> : ''}
+												<option key="59" value="59">59 Kg</option>
+												<option key="66" value="66">66 Kg</option>
+												<option key="74" value="74">74 Kg</option>
+												<option key="83" value="83">53 Kg</option>
+												<option key="93" value="93">93 Kg</option>
+												<option key="105" value="105">105 Kg</option>
+												<option key="120" value="120">120 Kg</option>
+												<option key="120+" value="120+">120 Kg+</option>
+											</>)
+											:
+											(<>
+												<option key="43" value="43">43 Kg</option>
+												<option key="47" value="47">47 Kg</option>
+												<option key="52" value="52">52 Kg</option>
+												<option key="57" value="57">57 Kg</option>
+												<option key="63" value="63">63 Kg</option>
+												<option key="84" value="84">84 Kg</option>
+												<option key="84+" value="84+">84 Kg+</option>
+											</>)
+											}
 										</select>
 									</div>
 								</div>
@@ -119,11 +176,21 @@ export default class About extends React.Component {
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="deadlift" onChange={this.handleChange}/>
 							</div>
-							<p>Note: Lifts are only compared to the International Powerlifting Association. Different federations will be available in the future.</p>
 							<button type="submit" className="btn rpe-button">Compare</button>
-							<div className="alert alert-danger d-none col-12 form-prepend input-error" role="alert">
+							<div className="alert alert-danger d-none col-12 form-prepend input-error mt-2" role="alert">
 							</div>
 							</form>
+							<Dna
+								visible={true}
+								height="100"
+  								width="100"
+								ariaLabel="dna-loading"
+								wrapperStyle={{}}
+								wrapperClass={this.state.loading ? 'loader' : 'd-none'}
+							/>
+							<div className={this.state.responseData ? 'row mt-2' : 'd-none'}>
+								{this.renderData()}
+							</div>
 						</div>
 					</div>
 				</div>

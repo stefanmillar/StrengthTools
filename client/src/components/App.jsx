@@ -17,7 +17,7 @@ export default class App extends React.Component {
 		this.state = {
 			weightTable: null,
 			reps: 1,
-			page: 'calculator'
+			page: 'about'
 		}
 
 		this.handleSubmitData = this.handleSubmitData.bind(this);
@@ -77,7 +77,7 @@ export default class App extends React.Component {
 						</span>
 					</h1>
 					<div className="col-4 links">
-						<a className="strength-nav-link" href="/compare" id="compare" onClick={this.handlePageChange}>Compare Strength</a>
+						<a className="strength-nav-link" href="/compare" id="compare" onClick={this.handlePageChange}>Compare Lifts</a>
 						<a className="strength-nav-link" href="/rpe" id="rpe" onClick={this.handlePageChange}>RPE Calculator</a>
 						<a className="strength-nav-link" href="/about" id="about" onClick={this.handlePageChange}>About</a>
 					</div>
