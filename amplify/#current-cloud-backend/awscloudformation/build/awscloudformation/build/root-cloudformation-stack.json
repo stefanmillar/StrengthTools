@@ -169,7 +169,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
-          "s3Key": "amplify-builds/liftcompare-3873457a706734424732-build.zip",
+          "s3Key": "amplify-builds/liftcompare-336469663949756b7749-build.zip",
           "env": "staging"
         }
       }
