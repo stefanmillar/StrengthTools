@@ -71,12 +71,12 @@ export default class App extends React.Component {
 		return (
 			<div className="App container">
 				<div className="row my-5 align-items-center">
-					<h1 className="header col-4 offset-4">
+					<h1 className="header col-lg-4 col-sm-12 col-12 offset-lg-4">
 						<span>
 							<GiWeightLiftingUp/> Strength Tools
 						</span>
 					</h1>
-					<div className="col-4 links">
+					<div className="col-lg-4 col-sm-12 col-12 links">
 						<a className="strength-nav-link" href="/compare" id="compare" onClick={this.handlePageChange}>Compare Lifts</a>
 						<a className="strength-nav-link" href="/rpe" id="rpe" onClick={this.handlePageChange}>RPE Calculator</a>
 						<a className="strength-nav-link" href="/about" id="about" onClick={this.handlePageChange}>About</a>

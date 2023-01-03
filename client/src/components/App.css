@@ -13,7 +13,7 @@ body {
 
 .strength-nav-link {
 	color: black;
-	padding: 1rem;
+	padding: 0.65rem;
 	text-decoration: none;
 }
 
@@ -29,6 +29,12 @@ body {
 
 .links {
   text-align: right;
+}
+
+@media (max-width: 992px) {
+	.links {
+		text-align: center;
+	}
 }
 
 .strength-card {
