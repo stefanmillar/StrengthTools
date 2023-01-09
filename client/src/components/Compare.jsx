@@ -71,6 +71,8 @@ export default class About extends React.Component {
 		$('.input-error').addClass('d-none').html('');
 
 		this.setState({loading: true, responseData: null});
+
+		$(document).scrollTop($(document).height());
 		let responseData = await API.get(apiName, '/liftcompare', {queryStringParameters: request});
 		this.setState({loading: false});
 
