@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/strength-tools": {
+      "name": "/strength-tools",
+      "lambdaFunction": "strengthtoolsclient722cdde2",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/calculate": {
+      "name": "/calculate",
+      "lambdaFunction": "calculate",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
