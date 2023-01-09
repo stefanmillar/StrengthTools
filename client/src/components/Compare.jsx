@@ -49,13 +49,14 @@ export default class About extends React.Component {
 		let htmlArray = [];
 		if(this.state.responseData) {
 			let data = this.state.responseData;
-			htmlArray.push(<h5>Lifts were compared against {data['meets']} recorded meets in the IPF.</h5>)
+			htmlArray.push(<hr className="mt-2"/>);
+			htmlArray.push(<h5 className="mb-3">Lifts were compared against {data['meets']} recorded meets in the IPF.</h5>)
 			for(let key in data) {
 				if(data[key] && key !== 'meets') {
 					if(data[key] > 80) {
-						htmlArray.push(<p>Your {key} ranks in the top {data[key]}% of lifters, Wow!</p>)
+						htmlArray.push(<p>Your {key} ranks in the {data[key]}th percentile, Wow!</p>)
 					} else {
-						htmlArray.push(<p>Your {key} ranks in the top {data[key]}% of lifters.</p>)
+						htmlArray.push(<p>Your {key} ranks in the {data[key]}th percentile.</p>)
 					}
 				}
 			}
@@ -84,10 +85,11 @@ export default class About extends React.Component {
 	render() {
 		return (
 			<div className="justify-content-center">
-				<div className="row d-flex justify-content-center">
+				<div className="d-flex justify-content-center">
 					<div className="card col-lg-6 col-sm-12 col-12 strength-card">
 						<div className="card-body">
-							<h5 className="card-title">Compare Lifts</h5>
+							<h5 className="card-title">Lift Details</h5>
+							<hr/>
 							<form id="rpeForm" onSubmit={this.submitData}>
 							<div className="row">
 								<div className="col-6">

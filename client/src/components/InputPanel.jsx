@@ -56,6 +56,7 @@ export default class InputPanel extends React.Component {
 				<div className="card col-lg-6 col-sm-12 col-12 strength-card">
 					<div className="card-body">
 						<h5 className="card-title">Set Details</h5>
+						<hr/>
 						<form id="rpeForm" onSubmit={this.submitData}>
 							<label htmlFor="weight" className="d-flex justify-content-start mb-2">Weight</label>
 							<div className="input-group mb-3">
