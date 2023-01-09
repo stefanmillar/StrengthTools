@@ -155,29 +155,29 @@
     "functionrpecalculate": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/rpecalculate-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-strengthtoolsclient-production-133252-deployment/amplify-cfn-templates/function/rpecalculate-cloudformation-template.json",
         "Parameters": {
-          "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
+          "deploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
           "s3Key": "amplify-builds/rpecalculate-69446952454e33387151-build.zip",
-          "env": "staging"
+          "env": "production"
         }
       }
     },
     "functionliftcompare": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-strengthtoolsclient-production-133252-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
         "Parameters": {
-          "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
+          "deploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
           "s3Key": "amplify-builds/liftcompare-336469663949756b7749-build.zip",
-          "env": "staging"
+          "env": "production"
         }
       }
     },
     "apiapi58122196": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/api/api58122196-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-strengthtoolsclient-production-133252-deployment/amplify-cfn-templates/api/api58122196-cloudformation-template.json",
         "Parameters": {
           "functionrpecalculateName": {
             "Fn::GetAtt": [
@@ -203,7 +203,7 @@
               "Outputs.Arn"
             ]
           },
-          "env": "staging"
+          "env": "production"
         }
       }
     }

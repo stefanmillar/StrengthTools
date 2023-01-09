@@ -26,5 +26,33 @@
         "api58122196": {}
       }
     }
+  },
+  "production": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-strengthtoolsclient-production-133252-authRole",
+      "UnauthRoleArn": "arn:aws:iam::208712725278:role/amplify-strengthtoolsclient-production-133252-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::208712725278:role/amplify-strengthtoolsclient-production-133252-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
+      "UnauthRoleName": "amplify-strengthtoolsclient-production-133252-unauthRole",
+      "StackName": "amplify-strengthtoolsclient-production-133252",
+      "StackId": "arn:aws:cloudformation:ca-central-1:208712725278:stack/amplify-strengthtoolsclient-production-133252/0a565e20-904c-11ed-a010-0a1063e846e4",
+      "AmplifyAppId": "d5p4gnfujzpzk"
+    },
+    "categories": {
+      "function": {
+        "rpecalculate": {
+          "deploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
+          "s3Key": "amplify-builds/rpecalculate-69446952454e33387151-build.zip"
+        },
+        "liftcompare": {
+          "deploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
+          "s3Key": "amplify-builds/liftcompare-336469663949756b7749-build.zip"
+        }
+      },
+      "api": {
+        "api58122196": {}
+      }
+    }
   }
 }
