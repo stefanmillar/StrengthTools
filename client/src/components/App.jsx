@@ -71,7 +71,7 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<div className="App container">
+			<div className="App container mb-5">
 				<div className="row my-5 align-items-center">
 					<h1 className="header col-lg-4 col-sm-12 col-12 offset-lg-4">
 						<span>
