@@ -9,7 +9,7 @@ import About from './About';
 import Compare from'./Compare';
 import { GiWeightLiftingUp } from "react-icons/gi";
 
-const BUILD_ENV = process.env.BUILD_ENV;
+const BUILD_ENV = process.env.REACT_APP_BUILD_ENV;
 Amplify.configure(BUILD_ENV === 'prod' ? awsconfigprod : awsconfigstage);
 API.configure(BUILD_ENV === 'prod' ? awsconfigprod : awsconfigstage);
 
