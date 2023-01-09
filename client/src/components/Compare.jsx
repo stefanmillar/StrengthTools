@@ -139,7 +139,7 @@ export default class About extends React.Component {
 												<option key="59" value="59">59 Kg</option>
 												<option key="66" value="66">66 Kg</option>
 												<option key="74" value="74">74 Kg</option>
-												<option key="83" value="83">53 Kg</option>
+												<option key="83" value="83">83 Kg</option>
 												<option key="93" value="93">93 Kg</option>
 												<option key="105" value="105">105 Kg</option>
 												<option key="120" value="120">120 Kg</option>
