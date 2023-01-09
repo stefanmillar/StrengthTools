@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
 import { Amplify, API } from 'aws-amplify';
-import awsconfig from '../aws-exports';
+import awsconfigstage from '../aws-exports-stage';
+import awsconfigprod from '../aws-exports-prod';
 import InputPanel from './InputPanel';
 import RpeTable from './RpeTable';
 import About from './About';
 import Compare from'./Compare';
 import { GiWeightLiftingUp } from "react-icons/gi";
 
-Amplify.configure(awsconfig);
-API.configure(awsconfig);
+const BUILD_ENV = process.env.BUILD_ENV;
+Amplify.configure(BUILD_ENV === 'prod' ? awsconfigprod : awsconfigstage);
+API.configure(BUILD_ENV === 'prod' ? awsconfigprod : awsconfigstage);
 
 export default class App extends React.Component {
 	constructor() {
