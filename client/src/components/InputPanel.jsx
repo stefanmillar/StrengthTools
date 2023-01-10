@@ -12,13 +12,15 @@ export default class InputPanel extends React.Component {
 		this.state = {
 			weight: null,
 			reps: 1,
-			rpe: 6.5
+			rpe: 6.5,
+			scale: 'lbs'
 		}
 
 		this.handleSubmitData = props.handleSubmitData;
 
 		this.handleChange = this.handleChange.bind(this);
 		this.submitData = this.submitData.bind(this);
+		this.radioClick = this.radioClick.bind(this);
 	}
 
 	handleChange(e) {
@@ -50,6 +52,10 @@ export default class InputPanel extends React.Component {
 		}
 	};
 
+	radioClick(e) {
+		this.setState({scale: e.target.id});
+	}
+
 	render() {
 		return (
 			<div className="d-flex justify-content-center">
@@ -58,10 +64,24 @@ export default class InputPanel extends React.Component {
 						<h5 className="card-title">Set Details</h5>
 						<hr/>
 						<form id="rpeForm" onSubmit={this.submitData}>
+							<div className="row">
+								<div class="col-6 d-flex justify-content-center">
+  									<input class="mx-1" type="radio" name="lbs" id="lbs" onClick={this.radioClick} checked={this.state.scale === 'lbs'}/>
+  									<label class="form-check-label mx-1" for="lbs">
+    									LBS
+  									</label>
+								</div>
+								<div class="col-6 d-flex justify-content-center">
+  									<input class="mx-1" type="radio" name="kg" id="kg" onClick={this.radioClick} checked={this.state.scale === 'kg'}/>
+  									<label class="form-check-label mx-1" for="kg">
+    									KG
+  									</label>
+								</div>
+							</div>
 							<label htmlFor="weight" className="d-flex justify-content-start mb-2">Weight</label>
 							<div className="input-group mb-3">
 								<div className="input-group-prepend col-sm-1 col-2">
-									<span className="input-group-text form-prepend">KG</span>
+									<span className="input-group-text form-prepend">{this.state.scale.toUpperCase()}</span>
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="weight" onChange={this.handleChange}/>
 								<div className="alert alert-danger d-none col-12 form-prepend" id="weight-error" role="alert">
