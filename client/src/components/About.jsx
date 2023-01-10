@@ -25,7 +25,7 @@ export default class About extends React.Component {
 						<p className="text-left">Welcome to strength tools! This site is mainly intended for powerlifters, but the rpe calculator can 
 							be also used by bodybuilders or olympic weightlifters. The original inspiration for the
 							site was from <a className="about-link" href="https://www.rpecalculator.com/">www.rpecalculator.com</a> made by
-							Ryaan Ahmed. After I created the RPE calculator, I decided to create the lift comparison caluculator.
+							Ryaan Ahmed. After I created the RPE calculator, I decided to create the lift comparison calculator.
 							<br/><br/>
 
 							The lift comparison calculator uses the <a className="about-link" href="https://www.openpowerlifting.org/">www.openpowerlifting.org/</a> dataset 
