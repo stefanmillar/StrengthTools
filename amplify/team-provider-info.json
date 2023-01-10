@@ -47,7 +47,7 @@
         },
         "liftcompare": {
           "deploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
-          "s3Key": "amplify-builds/liftcompare-336469663949756b7749-build.zip"
+          "s3Key": "amplify-builds/liftcompare-5a41584c6678644f352f-build.zip"
         }
       },
       "api": {

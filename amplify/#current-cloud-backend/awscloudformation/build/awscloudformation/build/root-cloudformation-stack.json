@@ -169,7 +169,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-strengthtoolsclient-production-133252-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
-          "s3Key": "amplify-builds/liftcompare-336469663949756b7749-build.zip",
+          "s3Key": "amplify-builds/liftcompare-5a41584c6678644f352f-build.zip",
           "env": "production"
         }
       }

@@ -29,7 +29,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-strengthtoolsclient-production-133252-deployment/amplify-cfn-templates/function/rpecalculate-cloudformation-template.json",
         "logicalId": "functionrpecalculate"
       },
-      "lastPushTimeStamp": "2023-01-09T18:40:40.022Z",
+      "lastPushTimeStamp": "2023-01-10T19:56:36.018Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:rpecalculate-production",
@@ -42,26 +42,26 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2023-01-09T18:38:28.762Z",
+      "lastBuildTimeStamp": "2023-01-10T19:55:26.923Z",
       "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2023-01-09T18:38:31.524Z",
-      "distZipFilename": "liftcompare-336469663949756b7749-build.zip",
+      "lastPackageTimeStamp": "2023-01-10T19:55:27.664Z",
+      "distZipFilename": "liftcompare-5a41584c6678644f352f-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-strengthtoolsclient-production-133252-deployment",
-        "s3Key": "amplify-builds/liftcompare-336469663949756b7749-build.zip"
+        "s3Key": "amplify-builds/liftcompare-5a41584c6678644f352f-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-strengthtoolsclient-production-133252-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
         "logicalId": "functionliftcompare"
       },
-      "lastPushTimeStamp": "2023-01-09T18:40:40.022Z",
+      "lastPushTimeStamp": "2023-01-10T19:56:36.530Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:liftcompare-production",
         "Name": "liftcompare-production",
         "LambdaExecutionRole": "strengthtoolsclientLambdaRolef78a8730-production"
       },
-      "lastPushDirHash": "ZFI4yBT+OanvPyRjHTPjtlWMz78="
+      "lastPushDirHash": "zr/Ivy3ZavCeBS3iD8xGop84cF4="
     }
   },
   "api": {
@@ -90,7 +90,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-strengthtoolsclient-production-133252-deployment/amplify-cfn-templates/api/api58122196-cloudformation-template.json",
         "logicalId": "apiapi58122196"
       },
-      "lastPushTimeStamp": "2023-01-09T18:40:40.022Z",
+      "lastPushTimeStamp": "2023-01-10T19:56:36.032Z",
       "output": {
         "ApiName": "api58122196",
         "RootUrl": "https://9r267nhfbh.execute-api.ca-central-1.amazonaws.com/production",
