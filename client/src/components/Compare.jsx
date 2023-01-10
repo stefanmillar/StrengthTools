@@ -20,7 +20,8 @@ export default class About extends React.Component {
 			bench: null,
 			deadlift: null,
 			responseData: null,
-			loading: false
+			loading: false,
+			scale: 'lbs'
 		}
 
 		this.handleSubmitData = props.handleSubmitData;
@@ -29,6 +30,7 @@ export default class About extends React.Component {
 		this.submitData = this.submitData.bind(this);
 		this.handleEmailClick = this.handleEmailClick.bind(this);
 		this.renderData = this.renderData.bind(this);
+		this.radioClick = this.radioClick.bind(this);
 	}
 
 	handleEmailClick(e) {
@@ -65,10 +67,22 @@ export default class About extends React.Component {
 		return htmlArray;
 	}
 
+	radioClick(e) {
+		this.setState({scale: e.target.id});
+	}
+
 	async submitData(e) {
 		e.preventDefault();
 		let request = this.state;
 		$('.input-error').addClass('d-none').html('');
+
+		if(this.state.scale === 'lbs') {
+			this.setState({
+				bench: this.state.bench ? this.state.bench / 2.26796185 : null,
+				squat: this.state.squat ? this.state.squat / 2.26796185 : null,
+				deadlift: this.state.deadlift ? this.state.deadlift / 2.26796185 : null
+			});
+		}
 
 		this.setState({loading: true, responseData: null});
 
@@ -160,24 +174,38 @@ export default class About extends React.Component {
 									</div>
 								</div>
 							</div>
+							<div className="row">
+								<div class="col-6 d-flex justify-content-center">
+  									<input class="mx-1" type="radio" name="lbs" id="lbs" onClick={this.radioClick} checked={this.state.scale === 'lbs'}/>
+  									<label class="form-check-label mx-1" for="lbs">
+    									LBS
+  									</label>
+								</div>
+								<div class="col-6 d-flex justify-content-center">
+  									<input class="mx-1" type="radio" name="kg" id="kg" onClick={this.radioClick} checked={this.state.scale === 'kg'}/>
+  									<label class="form-check-label mx-1" for="kg">
+    									KG
+  									</label>
+								</div>
+							</div>
 							<label htmlFor="squat" className="d-flex justify-content-start mb-2">Squat</label>
 							<div className="input-group mb-3">
 								<div className="input-group-prepend col-sm-1 col-2">
-									<span className="input-group-text form-prepend">KG</span>
+									<span className="input-group-text form-prepend">{this.state.scale.toUpperCase()}</span>
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="squat" onChange={this.handleChange}/>
 							</div>
 							<label htmlFor="bench" className="d-flex justify-content-start mb-2">Bench</label>
 							<div className="input-group mb-3">
 								<div className="input-group-prepend col-sm-1 col-2">
-									<span className="input-group-text form-prepend">KG</span>
+									<span className="input-group-text form-prepend">{this.state.scale.toUpperCase()}</span>
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="bench" onChange={this.handleChange}/>
 							</div>
 							<label htmlFor="deadlift" className="d-flex justify-content-start mb-2">Deadlift</label>
 							<div className="input-group mb-3">
 								<div className="input-group-prepend col-sm-1 col-2">
-									<span className="input-group-text form-prepend">KG</span>
+									<span className="input-group-text form-prepend">{this.state.scale.toUpperCase()}</span>
 								</div>
 								<input type="number" className="form-control col-sm-11 col-10" id="deadlift" onChange={this.handleChange}/>
 							</div>

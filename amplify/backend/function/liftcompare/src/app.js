@@ -74,7 +74,11 @@ app.get('/liftcompare', async (req, res) => {
       ${total ? 'RANK() over ( order by TotalKg ) total_rank,' : ''}
       id
       FROM \`open-powerlifting-data\`.\`open-powerlifting-data\`
-      WHERE Sex = '${sex}' AND BirthYearClass = '${age}' AND Equipment = '${equipment}' AND WeightClassKg = '${weight}')
+      WHERE Sex = '${sex}' AND BirthYearClass = '${age}' AND Equipment = '${equipment}' AND WeightClassKg = '${weight}'
+      ${squat ? 'AND Best3SquatKg > 0 AND Best3SquatKg IS NOT NULL' : ''}
+      ${bench ? 'AND Best3BenchKg > 0 AND Best3BenchKg IS NOT NULL' : ''}
+      ${deadlift ? 'AND Best3DeadliftKg > 0 AND Best3DeadliftKg IS NOT NULL' : ''}
+      )
       SELECT * FROM(
       SELECT ${('' + (squat ? 'squat_rank,' : '') + (bench ? 'bench_rank,' : '') + (deadlift ? 'deadlift_rank,' : '') + (total ? 'total_rank,' : '')).slice(0, -1)} FROM t
       WHERE
