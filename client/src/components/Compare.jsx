@@ -54,7 +54,7 @@ export default class About extends React.Component {
 			htmlArray.push(<hr className="mt-2"/>);
 			htmlArray.push(<h5 className="mb-3">Lifts were compared against {data['meets']} recorded meets in the IPF.</h5>)
 			for(let key in data) {
-				if(data[key] && key !== 'meets') {
+				if(data[key] != null && key !== 'meets') {
 					if(data[key] > 80) {
 						htmlArray.push(<p>Your {key} ranks in the {data[key]}th percentile, Wow!</p>)
 					} else {
@@ -73,16 +73,17 @@ export default class About extends React.Component {
 
 	async submitData(e) {
 		e.preventDefault();
-		let request = this.state;
-		$('.input-error').addClass('d-none').html('');
-
-		if(this.state.scale === 'lbs') {
-			this.setState({
-				bench: this.state.bench ? this.state.bench / 2.26796185 : null,
-				squat: this.state.squat ? this.state.squat / 2.26796185 : null,
-				deadlift: this.state.deadlift ? this.state.deadlift / 2.26796185 : null
-			});
+		let request = {
+			sex: this.state.sex,
+			age: this.state.age,
+			equipment: this.state.equipment,
+			weight: this.state.weight,
+			bench: this.state.bench ? this.state.bench / 2.26796185 : null,
+			squat: this.state.squat ? this.state.squat / 2.26796185 : null,
+			deadlift: this.state.deadlift ? this.state.deadlift / 2.26796185 : null
 		}
+
+		$('.input-error').addClass('d-none').html('');
 
 		this.setState({loading: true, responseData: null});
 
