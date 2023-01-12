@@ -92,10 +92,10 @@ app.get('/liftcompare', async (req, res) => {
     let totalRows = rows[0].count;
   
     res.json({
-      squat: squat ? Math.floor((ranksObject.squat_rank / totalRows) * 100) : null,
-      bench: bench ? Math.floor((ranksObject.bench_rank / totalRows) * 100) : null,
-      deadlift: deadlift ? Math.floor((ranksObject.deadlift_rank / totalRows) * 100) : null,
-      total: total ? Math.floor((ranksObject.total_rank / totalRows) * 100) : null,
+      squat: total ? totalRows - ranksObject.squat_rank : null,
+      bench: total ? totalRows - ranksObject.bench_rank : null,
+      deadlift: total ? totalRows - ranksObject.deadlift_rank : null,
+      total: total ? totalRows - ranksObject.total_rank : null,
       meets: totalRows
     });
 
