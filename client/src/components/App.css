@@ -71,3 +71,19 @@ body {
 	background-color: #ffcba4;
 	color: black;
 }
+
+.about-link {
+	padding: 0;
+}
+
+.footer {
+	color: black;
+}
+
+.icon-links {
+	color: black;
+}
+
+.icon-links:hover {
+	color: black;
+}

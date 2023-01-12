@@ -61,7 +61,7 @@ export default class InputPanel extends React.Component {
 			<div className="d-flex justify-content-center">
 				<div className="card col-lg-6 col-sm-12 col-12 strength-card">
 					<div className="card-body">
-						<h5 className="card-title">Set Details</h5>
+						<h5 className="card-title">RPE Calculator</h5>
 						<hr/>
 						<form id="rpeForm" onSubmit={this.submitData}>
 							<div className="row">

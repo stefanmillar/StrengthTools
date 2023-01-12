@@ -55,10 +55,10 @@ export default class About extends React.Component {
 			htmlArray.push(<h5 className="mb-3">Lifts were compared against {data['meets']} recorded meets in the IPF.</h5>)
 			for(let key in data) {
 				if(data[key] != null && key !== 'meets') {
-					if(data[key] > 80) {
-						htmlArray.push(<p>Your {key} ranks in the {data[key]}th percentile, Wow!</p>)
+					if((data[key] / data['meets']) * 100 <= 20) {
+						htmlArray.push(<p>Your {key} ranks {data[key] + 1} out of {data['meets']}, Wow!</p>)
 					} else {
-						htmlArray.push(<p>Your {key} ranks in the {data[key]}th percentile.</p>)
+						htmlArray.push(<p>Your {key} ranks {data[key] + 1} out of {data['meets']}.</p>)
 					}
 				}
 			}
@@ -78,9 +78,15 @@ export default class About extends React.Component {
 			age: this.state.age,
 			equipment: this.state.equipment,
 			weight: this.state.weight,
-			bench: this.state.bench ? this.state.bench / 2.26796185 : null,
-			squat: this.state.squat ? this.state.squat / 2.26796185 : null,
-			deadlift: this.state.deadlift ? this.state.deadlift / 2.26796185 : null
+			bench: this.state.bench,
+			squat: this.state.squat,
+			deadlift: this.state.deadlift
+		};
+
+		if(this.state.scale === 'lbs') {
+			request.bench = request.bench ? request.bench / 2.205 : null;
+			request.squat = request.squat ? request.squat / 2.205 : null;
+			request.deadlift = request.deadlift ? request.deadlift / 2.205 : null;
 		}
 
 		$('.input-error').addClass('d-none').html('');
@@ -105,7 +111,7 @@ export default class About extends React.Component {
 				<div className="d-flex justify-content-center">
 					<div className="card col-lg-6 col-sm-12 col-12 strength-card">
 						<div className="card-body">
-							<h5 className="card-title">Lift Details</h5>
+							<h5 className="card-title">Compare Lifts</h5>
 							<hr/>
 							<form id="rpeForm" onSubmit={this.submitData}>
 							<div className="row">

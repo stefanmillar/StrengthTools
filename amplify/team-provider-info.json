@@ -19,7 +19,7 @@
         },
         "liftcompare": {
           "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
-          "s3Key": "amplify-builds/liftcompare-573355434c43576e7859-build.zip"
+          "s3Key": "amplify-builds/liftcompare-782b4f6639462b50696f-build.zip"
         }
       },
       "api": {
