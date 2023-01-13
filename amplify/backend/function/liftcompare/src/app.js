@@ -16,9 +16,9 @@ app.use(function(req, res, next) {
 
 const connection = require('serverless-mysql')({
   config: {
-    host     : 'strength-tools-data.clhsj3dpvgnv.ca-central-1.rds.amazonaws.com',
+    host     : process.env.DB_HOSTNAME,
     user     : 'admin',
-    password : 'Keek159753',
+    password : process.env.DB_PASSWORD,
     port     : 3306
   }
 });
