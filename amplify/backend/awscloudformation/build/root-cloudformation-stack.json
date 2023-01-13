@@ -169,7 +169,9 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
-          "s3Key": "amplify-builds/liftcompare-782b4f6639462b50696f-build.zip",
+          "s3Key": "amplify-builds/liftcompare-773975466c506e43676f-build.zip",
+          "dbHostname": "strength-tools-data.clhsj3dpvgnv.ca-central-1.rds.amazonaws.com",
+          "dbPassword": "Keek159753",
           "env": "staging"
         }
       }

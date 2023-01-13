@@ -29,7 +29,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/rpecalculate-cloudformation-template.json",
         "logicalId": "functionrpecalculate"
       },
-      "lastPushTimeStamp": "2023-01-12T18:24:27.368Z",
+      "lastPushTimeStamp": "2023-01-13T18:09:45.977Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:rpecalculate-staging",
@@ -42,26 +42,26 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2023-01-12T18:23:50.037Z",
+      "lastBuildTimeStamp": "2023-01-13T18:08:08.608Z",
       "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2023-01-12T18:23:50.841Z",
-      "distZipFilename": "liftcompare-782b4f6639462b50696f-build.zip",
+      "lastPackageTimeStamp": "2023-01-13T18:08:09.323Z",
+      "distZipFilename": "liftcompare-773975466c506e43676f-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-amplify2011b3fc04af4-staging-205053-deployment",
-        "s3Key": "amplify-builds/liftcompare-782b4f6639462b50696f-build.zip"
+        "s3Key": "amplify-builds/liftcompare-773975466c506e43676f-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/function/liftcompare-cloudformation-template.json",
         "logicalId": "functionliftcompare"
       },
-      "lastPushTimeStamp": "2023-01-12T18:24:27.682Z",
+      "lastPushTimeStamp": "2023-01-13T18:09:46.491Z",
       "output": {
         "Region": "ca-central-1",
         "Arn": "arn:aws:lambda:ca-central-1:208712725278:function:liftcompare-staging",
         "Name": "liftcompare-staging",
         "LambdaExecutionRole": "strengthtoolsclientLambdaRolef78a8730-staging"
       },
-      "lastPushDirHash": "l8ZFQU+dzbj0RCG3r+tIe6+4rFo="
+      "lastPushDirHash": "H4N0Y8RJSvzXbzsJE3jpu3Lyc1k="
     }
   },
   "api": {
@@ -90,7 +90,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify2011b3fc04af4-staging-205053-deployment/amplify-cfn-templates/api/api58122196-cloudformation-template.json",
         "logicalId": "apiapi58122196"
       },
-      "lastPushTimeStamp": "2023-01-12T18:24:27.380Z",
+      "lastPushTimeStamp": "2023-01-13T18:09:45.988Z",
       "output": {
         "ApiName": "api58122196",
         "RootUrl": "https://wlqkpz9lxc.execute-api.ca-central-1.amazonaws.com/staging",
