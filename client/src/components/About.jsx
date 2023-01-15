@@ -22,7 +22,7 @@ export default class About extends React.Component {
 					<div className="card-body">
 						<h5 className="card-title text-left">About</h5>
 						<hr/>
-						<p className="text-left">Welcome to strength tools! This site is mainly intended for powerlifters, but the rpe calculator can 
+						<p className="text-left">Welcome to Strength Tools! This site is mainly intended for powerlifters, but the rpe calculator can 
 							be also used by bodybuilders or olympic weightlifters. The original inspiration for the
 							site was from <a className="about-link" target="_blank" rel="noreferrer" href="https://www.rpecalculator.com/">www.rpecalculator.com</a> made by
 							Ryaan Ahmed. After I created the RPE calculator, I decided to create the lift comparison and wilks/dots/gl calculators.

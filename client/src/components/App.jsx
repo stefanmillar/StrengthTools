@@ -101,7 +101,7 @@ export default class App extends React.Component {
 				{this.renderPage()}
 				<div className="footer mt-5">
 					<hr/>
-					<span>Click the links below to see my linkedin, code for the project, or email about bugs.<br/></span>
+					<span>Click the links below to see my LinkedIn, code for the project, or email about bugs.<br/></span>
 					<a className="icon-links mx-1" href="https://www.linkedin.com/in/stefan-millar-1506b6176/" target="_blank" rel="noreferrer"><AiFillLinkedin size={70}/></a>
 					<a className="icon-links mx-1" href="https://github.com/stefanmillar/StrengthTools" target="_blank" rel="noreferrer"><AiFillGithub size={70}/></a>
 					<a className="icon-links mx-1" onClick={this.handleEmailClick} href="https://www.linkedin.com/in/stefan-millar-1506b6176/" target="_blank" rel="noreferrer"><AiFillBug size={70}/></a>
